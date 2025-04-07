@@ -12,9 +12,29 @@ import { Separator } from '@/components/ui/separator';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Checkbox } from '@/components/ui/checkbox';
 import PlainTextProposal from '@/components/PlainTextProposal';
+interface Review {
+  name: string;
+  company: string;
+  avatar: string;
+  testimonial: string;
+}
 
+interface Data {
+  clientName: string;
+  projectType: string;
+  timeline: string;
+  responsive: string;
+  testTask: string;
+  lowPriceStatement: string;
+  introduction: string;
+  developerIntro: string;
+  selectedProjects: string[];
+  rate: string;
+  githubProfile: string;
+  clientReviews: Review[];
+}
 export default function Home() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<Data>({
     clientName: '',
     projectType: '',
     timeline: '2-4 weeks',
@@ -351,7 +371,8 @@ export default function Home() {
                 data={formData}
                 projects={{
                   web: webProjects,
-                  mobile: mobileProjects
+                  mobile: mobileProjects,
+                  design: [] // Add empty design projects array to match the required type
                 }}
               />
             </div>
