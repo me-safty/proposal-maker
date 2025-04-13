@@ -6,7 +6,7 @@ import { Clipboard } from 'lucide-react';
 interface Project {
   title: string;
   description: string;
-  image: string;
+  link: string
   technologies: string[];
 }
 
@@ -15,6 +15,7 @@ interface ProposalTextProps {
     clientName: string;
     projectType: string;
     timeline: string;
+    includeTimelineStatement: string;
     responsive: string;
     testTask: string;
     lowPriceStatement: string;
@@ -54,7 +55,7 @@ const PlainTextProposal: React.FC<ProposalTextProps> = ({ data, projects }) => {
   };
 
   const generatePlainText = () => {
-    let text = `Hi ${data.clientName || 'Client'},\n\n`;
+    let text = `Hi${data.clientName ? " " + data.clientName : ''},\n\n`;
 
     if (data.introduction) {
       text += `${data.introduction}\n\n`;
@@ -66,7 +67,10 @@ const PlainTextProposal: React.FC<ProposalTextProps> = ({ data, projects }) => {
       text += `I am willing to provide a free, 2-3 hour test task for you to assess my abilities before making a hiring decision.\n\n`;
     }
 
-    text += `I can complete it in no longer than ${data.timeline} or earlier.\n\n`;
+    if (data.includeTimelineStatement === 'yes') {
+      text += `I can complete it in no longer than ${data.timeline} or earlier.\n\n`;
+    }
+
 
     if (data.responsive === 'yes') {
       text += `I'll provide you with a completely responsive website from the largest screen size down to 320px "the smallest screen width".\n\n`;
@@ -75,7 +79,7 @@ const PlainTextProposal: React.FC<ProposalTextProps> = ({ data, projects }) => {
     if (selectedProjectsData.length > 0) {
       text += `You can see my previous work samples in my portfolio, and here are my projects links:\n`;
       selectedProjectsData.forEach((project, index) => {
-        text += `${index + 1}- https://example.com/${project.title.toLowerCase().replace(/ /g, '-')} "This is a ${project.description.toLowerCase()} built with ${project.technologies.join(', ')}".\n`;
+        text += `${index + 1}- ${project.link} "This is a ${project.description.toLowerCase()} built with ${project.technologies.join(', ')}".\n`;
       });
       text += `\n`;
     }
@@ -87,7 +91,7 @@ const PlainTextProposal: React.FC<ProposalTextProps> = ({ data, projects }) => {
     if (data.developerIntro) {
       text += `${data.developerIntro}\n\n`;
     } else {
-      text += `I'm a developer with experience working on similar projects. I'm here to help and sure you will like my work. I have experience working with various frameworks and libraries.\n\n`;
+      text += `I'm a developer with hands-on experience delivering projects similar to yours, and I'm confident you'll be pleased with the quality of my work. I specialize in building efficient, responsive applications and have worked extensively with a wide range of modern frameworks and libraries. I'm here to contribute value to your project and ensure a smooth, reliable development process from start to finish.\n\n`;
     }
 
     if (data.clientReviews.length > 0) {
@@ -108,7 +112,8 @@ const PlainTextProposal: React.FC<ProposalTextProps> = ({ data, projects }) => {
       text += `I accept a low price because this is the first time I have worked with you, where I strive to obtain a good review and provide the best possible service to the Client at the lowest possible cost.\n\n`;
     }
 
-    text += `I would love to discuss the project further and address any questions or concerns you may have. I am available for a call or video conference at your convenience. I am eager to learn more about your requirements and how I can contribute to the success of your project. I look forward to hearing from you and potentially collaborating on this project.`;
+    // text += `I would love to discuss the project further and address any questions or concerns you may have. I am available for a call or video conference at your convenience. I am eager to learn more about your requirements and how I can contribute to the success of your project. I look forward to hearing from you and potentially collaborating on this project.`;
+    text += `I'm happy to discuss the project further and answer any questions you may have. Feel free to send me a message—I'd love to learn more and explore how I can help.`;
 
     return text;
   };

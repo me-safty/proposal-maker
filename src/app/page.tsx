@@ -23,6 +23,7 @@ interface Data {
   clientName: string;
   projectType: string;
   timeline: string;
+  includeTimelineStatement: string;
   responsive: string;
   testTask: string;
   lowPriceStatement: string;
@@ -38,11 +39,12 @@ export default function Home() {
     clientName: '',
     projectType: '',
     timeline: '2-4 weeks',
+    includeTimelineStatement: 'no',
     responsive: 'no',
     testTask: 'no',
     lowPriceStatement: 'no',
     introduction: 'I saw your requirements, and It seems you are looking for a skilled developer to do some fixes and add some features to the project. I am interested in working on your project and I believe I have the skills and expertise to deliver a high-quality product.',
-    developerIntro: '',
+    developerIntro: "I'm a developer with hands-on experience delivering projects similar to yours, and I'm confident you'll be pleased with the quality of my work. I specialize in building efficient, responsive applications and have worked extensively with a wide range of modern frameworks and libraries. I'm here to contribute value to your project and ensure a smooth, reliable development process from start to finish.",
     selectedProjects: [],
     rate: '',
     githubProfile: 'github.com/me-safty',
@@ -108,12 +110,25 @@ export default function Home() {
                       </div>
                       <div className="grid gap-2">
                         <Label htmlFor="timeline">Completion Timeline</Label>
-                        <Input
-                          id="timeline"
-                          placeholder="e.g. 2 weeks"
-                          value={formData.timeline ?? ""}
-                          onChange={(e) => handleChange('timeline', e.target.value)}
-                        />
+                        <div className="flex gap-2 items-center">
+                          <Input
+                            id="timeline"
+                            placeholder="e.g. 2 weeks"
+                            value={formData.timeline ?? ""}
+                            onChange={(e) => handleChange('timeline', e.target.value)}
+                            className="flex-1"
+                          />
+                          <div className="flex items-center space-x-2">
+                            <Checkbox
+                              id="includeTimelineStatement"
+                              checked={formData.includeTimelineStatement === 'yes'}
+                              onCheckedChange={(checked) => {
+                                handleChange('includeTimelineStatement', checked ? 'yes' : 'no');
+                              }}
+                            />
+                            <Label htmlFor="includeTimelineStatement" className="text-sm">Include statement</Label>
+                          </div>
+                        </div>
                       </div>
                       <div className="grid gap-2">
                         <Label htmlFor="rate">Your Rate</Label>
@@ -385,52 +400,72 @@ export default function Home() {
 
 const webProjects = [
   {
-    title: 'E-commerce Platform',
-    description: 'A fully responsive e-commerce platform with payment integration',
-    image: 'https://placehold.co/300x200',
-    technologies: ['React', 'Node.js', 'MongoDB']
+    title: 'Universe Dawn',
+    description: 'An immersive sci-fi themed landing page showcasing advanced UI animations and interactive elements. Features responsive design and cross-browser compatibility.',
+    link: 'https://universe-dawn.com',
+    technologies: ['React', "Next.js", 'TypeScript', 'SASS', 'Arwes Framework', 'Storybook']
   },
   {
-    title: 'Corporate Website',
-    description: 'Modern corporate website with CMS integration',
-    image: 'https://placehold.co/300x200',
-    technologies: ['Next.js', 'Tailwind CSS', 'Strapi']
+    title: 'Safty Blog',
+    description: 'A modern blog platform featuring user authentication, rich content management, and responsive design.',
+    link: 'https://safty-blog.vercel.app',
+    technologies: ['React', 'TypeScript', 'Next.js', 'NextAuth', 'Tailwind CSS', 'Sanity']
   },
+  {
+    title: 'SaftyTube',
+    description: 'A YouTube clone with real-time search, video categorization, channel pages, and detailed video statistics.',
+    link: 'https://saftytube.netlify.app',
+    technologies: ['React', 'TypeScript', 'Material UI', 'YouTube API']
+  },
+  {
+    title: 'Personal Portfolio',
+    description: 'A professionally crafted portfolio website demonstrating modern web design principles. Features include smooth scrolling navigation, dynamic project galleries, contact forms, and optimized performance.',
+    link: 'https://me-safty.github.io/personal-portfolio',
+    technologies: ['HTML', 'CSS', 'JavaScript']
+  },
+  {
+    title: 'Software development with Monorepo',
+    description: 'Software development with Monorepo, Developing a web game app',
+    link: 'https://universe-dawn.com',
+    technologies: ['HTML', 'CSS', 'JavaScript']
+  },
+  {
+    title: 'Bootstrap Landing Page',
+    description: "A high-performance landing page with custom animations, responsive navigation, testimonial carousel, and contact forms. Optimized for various screen sizes with a focus on user experience and conversion.",
+    link: 'https://me-safty.github.io/bootstrap-temp-1',
+    technologies: ['HTML', 'CSS', 'Bootstrap 5']
+  }
 ];
 
 const mobileProjects = [
   {
     title: 'Fitness Tracking App',
     description: 'Mobile app for tracking workouts and nutrition',
-    image: 'https://placehold.co/300x200',
     technologies: ['React Native', 'Firebase', 'Redux']
   },
   {
     title: 'Food Delivery App',
     description: 'On-demand food delivery application with real-time tracking',
-    image: 'https://placehold.co/300x200',
     technologies: ['Flutter', 'Firebase', 'Google Maps API']
   },
 ];
 
 const clientReviews = [
   {
-    name: 'John Smith',
-    company: 'Tech Innovations Inc.',
-    avatar: 'https://placehold.co/100',
-    testimonial: 'Exceptional work delivered on time. The attention to detail was impressive.'
+    name: 'Jake',
+    testimonial: 'Mohamed is professional and great to work with. Excellent communication and the project was delivered quickly to a high standard. He answered all of my questions and was very helpful. I will definitely work with him again!'
   },
   {
-    name: 'Sarah Johnson',
-    company: 'Creative Solutions LLC',
-    avatar: 'https://placehold.co/100',
-    testimonial: 'Great communication throughout the project. Would definitely hire again.'
+    name: 'Shri',
+    testimonial: 'He is a humble and responsible individual who produces clean and impressive work.'
   },
   {
-    name: 'Michael Brown',
-    company: 'Global Enterprises',
-    avatar: 'https://placehold.co/100',
-    testimonial: 'Delivered beyond our expectations. The final product exceeded our requirements.'
+    name: 'Marcel',
+    testimonial: 'It was a pleasure to work with him. He always took responsibility and knew how to read and solve issues in a fast and efficient way.'
+  },
+  {
+    name: 'Mohamed',
+    testimonial: 'Working with Mohamed was a fantastic experience. He delivered exceptional results, demonstrating professionalism and expertise in his field. His timely and effective communication made the process smooth. Highly recommend for quality work!'
   },
 ];
 
@@ -447,7 +482,15 @@ function ProjectCard({
     <div className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
       {/* <img src={project.image} alt={project.title} className="w-full h-48 object-cover" /> */}
       <div className="p-5">
-        <h3 className="font-medium text-lg">{project.title}</h3>
+        <h3 className="font-medium text-lg">
+          {project.link ? (
+            <a href={project.link} target="_blank" rel="noopener noreferrer" className=" hover:underline">
+              {project.title}
+            </a>
+          ) : (
+            project.title
+          )}
+        </h3>
         <p className="text-sm text-muted-foreground mt-2">{project.description}</p>
         <div className="flex flex-wrap gap-2 mt-4">
           {project.technologies.map((tech: string, index: number) => (
