@@ -400,10 +400,10 @@ export default function Home() {
 
 const webProjects = [
   {
-    title: 'Universe Dawn',
-    description: 'An immersive sci-fi themed landing page showcasing advanced UI animations and interactive elements. Features responsive design and cross-browser compatibility.',
+    title: 'Software development with Monorepo',
+    description: 'browser-based game and a SaaS application using a monorepo architecture',
     link: 'https://universe-dawn.com',
-    technologies: ['React', "Next.js", 'TypeScript', 'SASS', 'Arwes Framework', 'Storybook']
+    technologies: ['React', "Next.js", 'TypeScript', 'Node.js', 'MongoDB', 'Monorepo', 'SASS', 'Jest', 'Storybook']
   },
   {
     title: 'Safty Blog',
@@ -412,29 +412,29 @@ const webProjects = [
     technologies: ['React', 'TypeScript', 'Next.js', 'NextAuth', 'Tailwind CSS', 'Sanity']
   },
   {
+    title: 'Universe Dawn',
+    description: 'An immersive sci-fi themed landing page showcasing advanced UI animations and interactive elements. Features responsive design and cross-browser compatibility.',
+    link: 'https://universe-dawn.com',
+    technologies: ['React', "Next.js", 'TypeScript', 'SASS', 'Arwes Framework', 'Storybook']
+  },
+  {
     title: 'SaftyTube',
     description: 'A YouTube clone with real-time search, video categorization, channel pages, and detailed video statistics.',
     link: 'https://saftytube.netlify.app',
     technologies: ['React', 'TypeScript', 'Material UI', 'YouTube API']
   },
-  {
-    title: 'Personal Portfolio',
-    description: 'A professionally crafted portfolio website demonstrating modern web design principles. Features include smooth scrolling navigation, dynamic project galleries, contact forms, and optimized performance.',
-    link: 'https://me-safty.github.io/personal-portfolio',
-    technologies: ['HTML', 'CSS', 'JavaScript']
-  },
-  {
-    title: 'Software development with Monorepo',
-    description: 'Software development with Monorepo, Developing a web game app',
-    link: 'https://universe-dawn.com',
-    technologies: ['HTML', 'CSS', 'JavaScript']
-  },
-  {
-    title: 'Bootstrap Landing Page',
-    description: "A high-performance landing page with custom animations, responsive navigation, testimonial carousel, and contact forms. Optimized for various screen sizes with a focus on user experience and conversion.",
-    link: 'https://me-safty.github.io/bootstrap-temp-1',
-    technologies: ['HTML', 'CSS', 'Bootstrap 5']
-  }
+  // {
+  //   title: 'Personal Portfolio',
+  //   description: 'A professionally crafted portfolio website demonstrating modern web design principles. Features include smooth scrolling navigation, dynamic project galleries, contact forms, and optimized performance.',
+  //   link: 'https://me-safty.github.io/personal-portfolio',
+  //   technologies: ['HTML', 'CSS', 'JavaScript']
+  // },
+  // {
+  //   title: 'Bootstrap Landing Page',
+  //   description: "A high-performance landing page with custom animations, responsive navigation, testimonial carousel, and contact forms. Optimized for various screen sizes with a focus on user experience and conversion.",
+  //   link: 'https://me-safty.github.io/bootstrap-temp-1',
+  //   technologies: ['HTML', 'CSS', 'Bootstrap 5']
+  // }
 ];
 
 const mobileProjects = [
@@ -455,10 +455,10 @@ const clientReviews = [
     name: 'Jake',
     testimonial: 'Mohamed is professional and great to work with. Excellent communication and the project was delivered quickly to a high standard. He answered all of my questions and was very helpful. I will definitely work with him again!'
   },
-  {
-    name: 'Shri',
-    testimonial: 'He is a humble and responsible individual who produces clean and impressive work.'
-  },
+  // {
+  //   name: 'Shri',
+  //   testimonial: 'He is a humble and responsible individual who produces clean and impressive work.'
+  // },
   {
     name: 'Marcel',
     testimonial: 'It was a pleasure to work with him. He always took responsibility and knew how to read and solve issues in a fast and efficient way.'
