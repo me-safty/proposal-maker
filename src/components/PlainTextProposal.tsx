@@ -77,9 +77,9 @@ const PlainTextProposal: React.FC<ProposalTextProps> = ({ data, projects }) => {
     }
 
     if (selectedProjectsData.length > 0) {
-      text += `You can see my previous work samples in my portfolio, and here are my projects links:\n`;
+      text += `Here are a couple of my recent projects:\n`;
       selectedProjectsData.forEach((project, index) => {
-        text += `${index + 1}- ${project.link} "This is a ${project.description.toLowerCase()} built with ${project.technologies.join(', ')}".\n`;
+        text += `${index + 1}- ${project.link} "This is ${project.description.toLowerCase()} built with ${project.technologies.join(', ')}".\n`;
       });
       text += `\n`;
     }

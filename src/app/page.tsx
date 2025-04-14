@@ -44,7 +44,7 @@ export default function Home() {
     testTask: 'no',
     lowPriceStatement: 'no',
     introduction: 'I saw your requirements, and It seems you are looking for a skilled developer to do some fixes and add some features to the project. I am interested in working on your project and I believe I have the skills and expertise to deliver a high-quality product.',
-    developerIntro: "I'm a developer with hands-on experience delivering projects similar to yours, and I'm confident you'll be pleased with the quality of my work. I specialize in building efficient, responsive applications and have worked extensively with a wide range of modern frameworks and libraries. I'm here to contribute value to your project and ensure a smooth, reliable development process from start to finish.",
+    developerIntro: "I’ve worked on similar projects and know what it takes to build reliable, scalable applications. I take pride in writing clean code, communicating clearly, and delivering on time.",
     selectedProjects: [],
     rate: '',
     githubProfile: 'github.com/me-safty',
@@ -91,24 +91,6 @@ export default function Home() {
                         />
                       </div>
                       <div className="grid gap-2">
-                        <Label htmlFor="projectType">Project Type</Label>
-                        <Select
-                          value={formData.projectType}
-                          onValueChange={(value) => handleChange('projectType', value)}
-                        >
-                          <SelectTrigger id="projectType">
-                            <SelectValue placeholder="Select project type" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="website">Website Development</SelectItem>
-                            <SelectItem value="webapp">Web Application</SelectItem>
-                            <SelectItem value="mobileapp">Mobile Application</SelectItem>
-                            <SelectItem value="ecommerce">E-commerce Solution</SelectItem>
-                            <SelectItem value="design">UI/UX Design</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                      <div className="grid gap-2">
                         <Label htmlFor="timeline">Completion Timeline</Label>
                         <div className="flex gap-2 items-center">
                           <Input
@@ -130,15 +112,7 @@ export default function Home() {
                           </div>
                         </div>
                       </div>
-                      <div className="grid gap-2">
-                        <Label htmlFor="rate">Your Rate</Label>
-                        <Input
-                          id="rate"
-                          placeholder="e.g. $50/hour or $2000 fixed price"
-                          value={formData.rate}
-                          onChange={(e) => handleChange('rate', e.target.value)}
-                        />
-                      </div>
+
                       <div className="grid gap-2">
                         <Label htmlFor="introduction">Developer Introduction</Label>
                         <Textarea
@@ -161,81 +135,12 @@ export default function Home() {
                   <CardContent>
                     <Textarea
                       placeholder="Write your proposal introduction here..."
-                      className="min-h-32"
+                      className="min-h-48"
                       value={formData.introduction}
                       onChange={(e) => handleChange('introduction', e.target.value)}
                     />
                   </CardContent>
-                </Card>
-
-                <Card className="col-span-2">
-                  <CardHeader>
-                    <CardTitle>Additional Options</CardTitle>
-                    <CardDescription>Configure additional options for your proposal</CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-6">
-                    <div className="space-y-4">
-                      <div>
-                        <Label>Responsive Design</Label>
-                        <RadioGroup
-                          defaultValue={formData.responsive}
-                          onValueChange={(value) => handleChange('responsive', value)}
-                          className="grid grid-cols-1 gap-3 mt-2"
-                        >
-                          <div className="flex items-center space-x-2">
-                            <RadioGroupItem value="yes" id="r1" />
-                            <Label htmlFor="r1">Yes, responsive design included</Label>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <RadioGroupItem value="no" id="r2" />
-                            <Label htmlFor="r2">No, desktop only</Label>
-                          </div>
-                        </RadioGroup>
-                      </div>
-
-                      <Separator />
-
-                      <div>
-                        <Label>Test Task Option</Label>
-                        <RadioGroup
-                          defaultValue={formData.testTask}
-                          onValueChange={(value) => handleChange('testTask', value)}
-                          className="grid grid-cols-1 gap-3 mt-2"
-                        >
-                          <div className="flex items-center space-x-2">
-                            <RadioGroupItem value="yes" id="tt1" />
-                            <Label htmlFor="tt1">Yes, I'm willing to do a test task</Label>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <RadioGroupItem value="no" id="tt2" />
-                            <Label htmlFor="tt2">No test task needed</Label>
-                          </div>
-                        </RadioGroup>
-                      </div>
-
-                      <Separator />
-
-                      <div>
-                        <Label>Low Price Statement</Label>
-                        <RadioGroup
-                          defaultValue={formData.lowPriceStatement}
-                          onValueChange={(value) => handleChange('lowPriceStatement', value)}
-                          className="grid grid-cols-1 gap-3 mt-2"
-                        >
-                          <div className="flex items-center space-x-2">
-                            <RadioGroupItem value="yes" id="lp1" />
-                            <Label htmlFor="lp1">Include low price statement</Label>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <RadioGroupItem value="no" id="lp2" />
-                            <Label htmlFor="lp2">Exclude low price statement</Label>
-                          </div>
-                        </RadioGroup>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-                
+                </Card>                
 
                 
 
@@ -344,6 +249,104 @@ export default function Home() {
 
                 
 
+                <Card className="col-span-2">
+                  <CardHeader>
+                    <CardTitle>Additional Options</CardTitle>
+                    <CardDescription>Configure additional options for your proposal</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-6">
+                    <div className="space-y-4">
+                      <div>
+                        <Label>Responsive Design</Label>
+                        <RadioGroup
+                          defaultValue={formData.responsive}
+                          onValueChange={(value) => handleChange('responsive', value)}
+                          className="grid grid-cols-1 gap-3 mt-2"
+                        >
+                          <div className="flex items-center space-x-2">
+                            <RadioGroupItem value="yes" id="r1" />
+                            <Label htmlFor="r1">Yes, responsive design included</Label>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <RadioGroupItem value="no" id="r2" />
+                            <Label htmlFor="r2">No, desktop only</Label>
+                          </div>
+                        </RadioGroup>
+                      </div>
+
+                      <Separator />
+
+                      <div>
+                        <Label>Test Task Option</Label>
+                        <RadioGroup
+                          defaultValue={formData.testTask}
+                          onValueChange={(value) => handleChange('testTask', value)}
+                          className="grid grid-cols-1 gap-3 mt-2"
+                        >
+                          <div className="flex items-center space-x-2">
+                            <RadioGroupItem value="yes" id="tt1" />
+                            <Label htmlFor="tt1">Yes, I'm willing to do a test task</Label>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <RadioGroupItem value="no" id="tt2" />
+                            <Label htmlFor="tt2">No test task needed</Label>
+                          </div>
+                        </RadioGroup>
+                      </div>
+
+                      <Separator />
+
+                      <div>
+                        <Label>Low Price Statement</Label>
+                        <RadioGroup
+                          defaultValue={formData.lowPriceStatement}
+                          onValueChange={(value) => handleChange('lowPriceStatement', value)}
+                          className="grid grid-cols-1 gap-3 mt-2"
+                        >
+                          <div className="flex items-center space-x-2">
+                            <RadioGroupItem value="yes" id="lp1" />
+                            <Label htmlFor="lp1">Include low price statement</Label>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <RadioGroupItem value="no" id="lp2" />
+                            <Label htmlFor="lp2">Exclude low price statement</Label>
+                          </div>
+                        </RadioGroup>
+                      </div>
+                      <Separator />
+                      <div className="grid gap-2">
+                        <Label htmlFor="projectType">Project Type</Label>
+                        <Select
+                          value={formData.projectType}
+                          onValueChange={(value) => handleChange('projectType', value)}
+                        >
+                          <SelectTrigger id="projectType">
+                            <SelectValue placeholder="Select project type" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="website">Website Development</SelectItem>
+                            <SelectItem value="webapp">Web Application</SelectItem>
+                            <SelectItem value="mobileapp">Mobile Application</SelectItem>
+                            <SelectItem value="ecommerce">E-commerce Solution</SelectItem>
+                            <SelectItem value="design">UI/UX Design</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+
+                      <Separator />
+                      <div className="grid gap-2">
+                        <Label htmlFor="rate">Your Rate</Label>
+                        <Input
+                          id="rate"
+                          placeholder="e.g. $50/hour or $2000 fixed price"
+                          value={formData.rate}
+                          onChange={(e) => handleChange('rate', e.target.value)}
+                        />
+                      </div>
+
+                    </div>
+                  </CardContent>
+                </Card>
                 
 
                 <Card className="col-span-2">
@@ -401,7 +404,7 @@ export default function Home() {
 const webProjects = [
   {
     title: 'Software development with Monorepo',
-    description: 'browser-based game and a SaaS application using a monorepo architecture',
+    description: 'A browser-based game and a SaaS application using a monorepo architecture',
     link: 'https://universe-dawn.com',
     technologies: ['React', "Next.js", 'TypeScript', 'Node.js', 'MongoDB', 'Monorepo', 'SASS', 'Jest', 'Storybook']
   },
@@ -409,7 +412,7 @@ const webProjects = [
     title: 'Safty Blog',
     description: 'A modern blog platform featuring user authentication, rich content management, and responsive design.',
     link: 'https://safty-blog.vercel.app',
-    technologies: ['React', 'TypeScript', 'Next.js', 'NextAuth', 'Tailwind CSS', 'Sanity']
+    technologies: ['React', 'TypeScript', 'Next.js', 'NextAuth', 'Tailwind CSS', 'Sanity CMS']
   },
   {
     title: 'Universe Dawn',
